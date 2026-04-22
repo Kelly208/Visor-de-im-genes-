@@ -75,7 +75,7 @@ def binarizar(img, T=128):
 
 
 # =========================
-# 8. CANALES RGB (GENÉRICO)
+# 8. CANALES RGB 
 # =========================
 def canal_rgb(img, canal):
     salida = np.zeros_like(img)
@@ -84,7 +84,7 @@ def canal_rgb(img, canal):
 
 
 # =========================
-# 9. CANALES CMY (GENÉRICO)
+# 9. CANALES CMY 
 # =========================
 def canal_cmy(img, canal):
     salida = img.copy()
@@ -146,8 +146,6 @@ def zoom(img, factor, cx=None, cy=None):
         cx = w // 2
     if cy is None:
         cy = h // 2
-
-    # tamaño del recorte (más pequeño = más zoom)
     nh = int(h / factor)
     nw = int(w / factor)
 
@@ -158,8 +156,6 @@ def zoom(img, factor, cx=None, cy=None):
     y2 = min(h, cy + nh // 2)
 
     recorte = img[y1:y2, x1:x2]
-
-    # reescalar a tamaño original
     zoomed = np.array(Image.fromarray(recorte).resize((w, h)))
 
     return zoomed

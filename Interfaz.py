@@ -259,8 +259,6 @@ centrar(sr)
 def aplicar_reduccion():
     f = sr.get()
     img_red = reduccion(img_original, f)
-
-    # 🔥 ESCALAR SOLO PARA VISUALIZAR PIXELADO
     h, w = img_red.shape[:2]
 
     img_red = Image.fromarray(img_red).resize(
